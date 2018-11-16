@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Mobile_Suite" thread-count="4" parallel="classes">
+    <listeners>
+        <listener class-name="atu.testng.reports.listeners.ATUReportsListener"></listener>
+        <listener class-name="atu.testng.reports.listeners.ConfigurationListener"></listener>
+        <listener class-name="atu.testng.reports.listeners.MethodListener"></listener>
+    </listeners>
+
+    <test name="KillSwitch_Reg_user">
+        <parameter name="store" value="US"/>
+        <parameter name="users" value="registered"/>
+        <classes>
+            <class name="tests.mobileDT.Bopis.MBopisKillSwitch"/>
+
+        </classes>
+    </test>
+
+    <test name="KillSwitch_Guest_user">
+        <parameter name="store" value="US"/>
+        <parameter name="users" value="guest"/>
+        <classes>
+            <class name="tests.mobileDT.Bopis.MBopisKillSwitch"/>
+        </classes>
+    </test>
+
+    <test name="KillSwitch_CAReg_user">
+        <parameter name="store" value="CA"/>
+        <parameter name="users" value="registered"/>
+        <classes>
+            <class name="tests.mobileDT.Bopis.MBopisKillSwitch"/>
+        </classes>
+    </test>
+
+    <test name="KillSwitch_CAGuest_user">
+        <parameter name="store" value="CA"/>
+        <parameter name="users" value="guest"/>
+        <classes>
+            <class name="tests.mobileDT.Bopis.MBopisKillSwitch"/>
+        </classes>
+    </test>
+
+</suite>

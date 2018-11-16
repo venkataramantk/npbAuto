@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <Environment>
+        <AppUrl>https://nodeui1.childrensplace.com/us/home</AppUrl>
+        <CAAppUrl>https://nodeui1.childrensplace.com/ca/home</CAAppUrl>
+        <USESAppUrl>https://es.nodeui1.childrensplace.com/us/home</USESAppUrl>
+        <CAFRAppUrl>https://fr.nodeui1.childrensplace.com/ca/home</CAFRAppUrl>
+        <IsROPISEnabled>No</IsROPISEnabled>
+        <IsBOPISEnabled>Yes</IsBOPISEnabled>
+        <IsLTYEnabled>Yes</IsLTYEnabled>
+        <IsRecommendationsEnabled>No</IsRecommendationsEnabled>
+        <IsPlaceCashEarningsOn>No</IsPlaceCashEarningsOn>
+        <IsFDMSEnabled>Yes</IsFDMSEnabled>
+    </Environment>
+</Config>

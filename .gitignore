@@ -1,0 +1,27 @@
+debug.log
+.idea/
+TCPAutomation.iml
+Test Reports/
+target/
+logs/
+testRun.xml
+jk_*
+test-output/
+
+*.txt
+#src/test/java/tests/webDT/checkout/BopisOrders.java
+src/test/java/tests/webDT/checkout/MixedOrder.java
+src/test/java/tests/webDT/checkout/PlaceOrders.java
+src/test/java/tests/API
+sh.exe.stackdump
+
+
+#mac ignore file for framework
+src/main/main.iml
+src/test/test.iml
+.DS_Store
+
+.profile
+.project
+.settings
+.classpath

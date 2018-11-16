@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SmokeSuite" parallel="classes" thread-count="16">
+    <test name="SmokeTests_USReg">
+        <parameter name="store" value="US"/>
+        <parameter name="users" value="registered"/>
+        <groups>
+            <run>
+                <exclude name="guestonly"/>
+                <exclude name="recommendations"/>
+                <exclude name="caonly"/>
+                <exclude name="giftcard"/>
+                <exclude name="paypal"/>
+                <include name="production"/>
+            </run>
+        </groups>
+        <classes>
+
+            <class name="tests.webDT.globalComponents.footer.Footer"/>
+
+            <class name="tests.webDT.globalComponents.globalNavigation.subCategories_L2.Department_LandingPage"/>
+
+            <class name="tests.webDT.globalComponents.InlineShoppingBag.emptyBag.ShoppingBagDrawer"/>
+
+            <class name="tests.webDT.globalComponents.loginToAcctDrawer.Login_Modal"/>
+
+            <class name="tests.webDT.globalComponents.header.header_645.Favorites_Header"/>
+
+            <class name="tests.webDT.shoppingBag.bopis.BOPIS_635"/>
+
+            <class name="tests.webDT.checkout.CombinedOrder"/>
+
+            <class name="tests.webDT.checkout.BOPISOrder"/>
+
+            <class name="tests.webDT.checkout.Checkout_OrderReview_STH"/>
+
+            <class name="tests.webDT.checkout.CheckoutFieldValidations"/>
+
+            <class name="tests.webDT.checkout.Checkout_OrderConfirmation_STH"/>
+
+            <class name="tests.webDT.checkout.BillingPage"/>
+
+            <class name="tests.webDT.checkout.Checkout_OrderLedger_Bopis"/>
+
+            <class name="tests.webDT.checkout.CheckoutLoginCreateAccBOPIS"/>
+
+            <class name="tests.webDT.checkout.CheckoutLoginCreateAccSTH"/>
+
+            <class name="tests.webDT.shoppingBag.ShoppingBag2_DT638"/>
+
+
+        </classes>
+    </test>
+
+</suite>

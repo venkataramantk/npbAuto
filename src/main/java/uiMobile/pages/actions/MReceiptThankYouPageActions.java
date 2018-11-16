@@ -184,18 +184,6 @@ public class MReceiptThankYouPageActions extends MobileReceiptThankYouPageRepo {
         return getText(toolTipContent).equalsIgnoreCase(s);
     }
 
-    /**
-     * Click on MPR eSpot in order Confirmation page
-     * Verify MPR landing page is displayed
-     *
-     * @param mrtpsAndWicActions
-     * @return
-     */
-    public boolean clickMPREspot(MRTPSAndWicActions mrtpsAndWicActions) {
-        waitUntilElementDisplayed(mPReSpot, 10);
-        click(mPReSpot);
-        return waitUntilElementDisplayed(mrtpsAndWicActions.applyOrAcceptOffer, 10);
-    }
 
     /**
      * Click on order no in Order Confirmation page

@@ -467,41 +467,6 @@ public class ShoppingBagDrawerActions extends ShoppingBagDrawerRepo {
         }
         return isIFrameAvailable;
     }
-    public boolean clickOnPayPalButtonFromDrawerProd(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions, BillingPageActions billingPageActions, String parentWindow) {
-        waitUntilElementDisplayed(paypalSbDrawer, 3);
-        click(paypalSbDrawer);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-//        waitForFrameToLoad(0, 45);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLoginProd(paypalOrderDetailsPageActions, billingPageActions, parentWindow);
-    }
-
-    public boolean clickOnPayPalButtonFromDrawerAndInvalidCheck(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions, BillingPageActions billingPageActions, String parentWindow
-            , ReviewPageActions reviewPageActions, ShoppingBagPageActions shoppingBagPageActions, String email, String password) {
-        waitUntilElementDisplayed(paypalSbDrawer, 3);
-        click(paypalSbDrawer);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-//        waitForFrameToLoad(0, 45);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLogin_WrongID(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, shoppingBagPageActions, email, password, parentWindow);
-    }
-
-    @Deprecated//#Duplicate
-    public boolean clickOnPayPalButtonFromSBDrawer(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions, BillingPageActions billingPageActions,
-                                                   ReviewPageActions reviewPageActions, String email, String password, String parentWindow) {
-        waitUntilElementDisplayed(paypalSbDrawer, 3);
-        click(paypalSbDrawer);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-//        waitForFrameToLoad(0, 45);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLogin(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, email, password, parentWindow);
-    }
 
     /**
      * Get all the badges from products in mini-bag

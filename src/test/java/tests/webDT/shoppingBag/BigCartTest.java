@@ -18,7 +18,6 @@ import java.util.Map;
 public class BigCartTest extends BaseTest {
     WebDriver driver;
     ExcelReader excelReaderDT2 = new ExcelReader(Config.getDataFile(Config.DT2_DETAILS));
-    Logger logger = Logger.getLogger(OrderLedger.class);
     private String rowInExcel = "CreateAccountUS";
     String emailAddressReg;
     private String password;

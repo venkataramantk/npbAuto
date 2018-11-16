@@ -24,20 +24,10 @@ public class FooterActions extends FooterRepo {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean clickGetItNowLinkAtGiftCard(GiftCardsPageActions giftCardsPageActions) {
-        click(getItNow_GiftCardLink);
-        return waitUntilElementDisplayed(giftCardsPageActions.sendAGiftCard_Btn, 30);
-    }
-
     public boolean clickOnOrderStatus(OrderStatusActions orderStatusActions) {
         click(link_OrderStatus);
         return waitUntilElementDisplayed(orderStatusActions.trackOrderbutton, 30);
 
-    }
-
-    public boolean clickOnGiftCardsLink(GiftCardsPageActions giftCardsPageActions) {
-        click(footerLinksByName("Gift Cards"));
-        return waitUntilElementDisplayed(giftCardsPageActions.sendAGiftCard_Btn, 30);
     }
 
     public boolean clickOnMyAccountLink(MyAccountPageActions myAccountPageActions) {
@@ -601,12 +591,6 @@ public class FooterActions extends FooterRepo {
 //            return verifyElementNotDisplayed(flagCountryImg, 10);
 
 
-    }
-
-      public boolean clickPLCCImageFromFooter(FooterMPRCreditCardActions footerMPRCreditCardActions) {
-        scrollDownUntilElementDisplayed(image_Plcc);
-        click(image_Plcc);
-        return waitUntilElementDisplayed(footerMPRCreditCardActions.applyButton, 30);
     }
 
     public boolean clickContinueShopping(String linkName, HeaderMenuActions headerMenuActions) {

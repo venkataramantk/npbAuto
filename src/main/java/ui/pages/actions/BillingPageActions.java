@@ -1152,42 +1152,6 @@ public class BillingPageActions extends BillingPageRepo {
                 reviewProgressBarStatus.equalsIgnoreCase("") &&
                 title.equalsIgnoreCase("Billing");
     }
-    public boolean clickOnPayPalButtonFromBillingProd(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions,PayPalPageActions payPalPageActions,BillingPageActions billingPageActions,String parentWindow) {
-        waitUntilElementDisplayed(paypalRadioButton, 5);
-        // jqueryClick(paypalRadioBox);
-        click(paypalRadioButton);
-        staticWait(2000);
-        scrollDownUntilElementDisplayed(proceedWithPaPalButton);
-        click(proceedWithPaPalButton);
-        staticWait(4000);
-        payPalPageActions.payPalNewWindow(billingPageActions);
 
-//        switchToContinuePayPalFrameIfAvailable();
-//        click(proceedWithPaypalModalButton);
-//        staticWait(5000);
-//        String currentWindow = driver.getWindowHandle();
-//        staticWait(5000);
-//        switchToWindow(currentWindow);
-//        waitUntilElementDisplayed(payPalLoginButton,9);
-        return payPalPageActions.paypalLoginProd(paypalOrderDetailsPageActions, billingPageActions, parentWindow);
-    }
-    public boolean clickOnPayPalButtonFromBillingInvalidLogin(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions,PayPalPageActions payPalPageActions,BillingPageActions billingPageActions,ReviewPageActions reviewPageActions,
-                                                              ShoppingBagPageActions shoppingBagPageActions,String email,String password,String parentWindow)
-      {waitUntilElementDisplayed(paypalRadioButton, 5);
-        // jqueryClick(paypalRadioBox);
-        click(paypalRadioButton);
-        staticWait(2000);
-        scrollDownUntilElementDisplayed(proceedWithPaPalButton);
-        click(proceedWithPaPalButton);
-        staticWait(4000);
-        switchToContinuePayPalFrameIfAvailable();
-        click(proceedWithPaypalModalButton);
-        staticWait(5000);
-        String currentWindow = driver.getWindowHandle();
-        staticWait(5000);
-        switchToWindow(currentWindow);
-        waitUntilElementDisplayed(payPalLoginButton,9);
-        return payPalPageActions.paypalLogin_WrongID(paypalOrderDetailsPageActions, billingPageActions,reviewPageActions,shoppingBagPageActions,email,password ,parentWindow);
-    }
 }
 

@@ -25,34 +25,29 @@ public class CreateAccount extends BaseTest {
 
     @Parameters({storeXml, usersXml})
     @BeforeClass(alwaysRun = true)
-    public void initDriver(@Optional("US") String store, @Optional("guest") String user) throws Exception {
+    public void initDriver(/*@Optional("US") String store, @Optional("guest") String user*/) throws Exception {
         initializeDriver();
         driver = getDriver();
         initializePages(driver);
         env = EnvironmentConfig.getEnvironmentProfile();
         driver.get(EnvironmentConfig.getApplicationUrl());
-        if (store.equalsIgnoreCase("US")) {
-            emailAddressReg = clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelUS);
-            password = getDT2TestingCellValueBySheetRowAndColumn("CreateAccount", rowInExcelUS, "Password");
-
-        } else if (store.equalsIgnoreCase("CA")) {
-            headerMenuActions.deleteAllCookies();
-            footerActions.changeCountryAndLanguage("CA", "English");
-            emailAddressReg = clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelCA);
-            password = getDT2TestingCellValueBySheetRowAndColumn("CreateAccount", rowInExcelCA, "Password");
-        }
+//        if (store.equalsIgnoreCase("US")) {
+//            emailAddressReg = clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelUS);
+//            password = getDT2TestingCellValueBySheetRowAndColumn("CreateAccount", rowInExcelUS, "Password");
+//
+//        } else if (store.equalsIgnoreCase("CA")) {
+//            headerMenuActions.deleteAllCookies();
+//            footerActions.changeCountryAndLanguage("CA", "English");
+//            emailAddressReg = clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelCA);
+//            password = getDT2TestingCellValueBySheetRowAndColumn("CreateAccount", rowInExcelCA, "Password");
+//        }
         headerMenuActions.deleteAllCookies();
     }
 
     @Parameters(storeXml)
     @BeforeMethod(alwaysRun = true)
-    public void openBrowser(@Optional("US") String store) throws Exception {
+    public void openBrowser() throws Exception {
         driver.get(EnvironmentConfig.getApplicationUrl());
-        if (store.equalsIgnoreCase("US")) {
-            headerMenuActions.addStateCookie("NJ");
-        } else if (store.equalsIgnoreCase("CA")) {
-            footerActions.changeCountryAndLanguage("CA", "English");
-        }
         driver.navigate().refresh();
     }
 
@@ -63,10 +58,10 @@ public class CreateAccount extends BaseTest {
 
     @Parameters(storeXml)
     @Test(groups = {GLOBALCOMPONENT, REGRESSION, GUESTONLY, PROD_REGRESSION})
-    public void createNewAccount(@Optional("US") String store) {
+    public void createNewAccount() {
 
         setAuthorInfo("Venkat");
-        setRequirementCoverage("Verify that guest user in " + store + " store," + " in US Store is able to create an account by clicking on 'Create Account' link from header.");
+        setRequirementCoverage("Verify that guest user in store, in US Store is able to create an account by clicking on 'Create Account' link from header.");
         Map<String, String> acct = excelReaderDT2.getExcelData("CreateAccount", rowInExcel);
 //        createNewAccountFromHeader(acct.get("FirstName"), acct.get("LastName"), acct.get("Password"), acct.get("ZipCode"), acct.get("PhoneNumber"), acct.get("SuccessMessage"));
         clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelUS);

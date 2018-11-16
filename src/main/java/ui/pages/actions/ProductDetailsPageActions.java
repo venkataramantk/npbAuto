@@ -1566,43 +1566,6 @@ public class ProductDetailsPageActions extends ProductDetailsPageRepo {
         return false;
     }
 
-    public boolean proceedToPaypalFromConfProd(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions, BillingPageActions billingPageActions,
-                                               ShoppingBagDrawerActions shoppingBagDrawerActions, String parentWindow) {
-        waitUntilElementDisplayed(shoppingBagDrawerActions.paypalSbDrawer);
-        click(shoppingBagDrawerActions.paypalSbDrawer);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLoginProd(paypalOrderDetailsPageActions, billingPageActions, parentWindow);
-    }
-
-    public boolean proceedToPaypalFromConf(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions,
-                                           BillingPageActions billingPageActions, ReviewPageActions reviewPageActions, String email, String password, String parentWindow) {
-        waitUntilElementDisplayed(paypalSbModal);
-        click(paypalSbModal);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLogin(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, email, password, parentWindow);
-    }
-
-    /**
-     * Created By Pooja
-     * This Method clicks on recommended products as per index
-     */
-    public boolean proceedToPaypalInvalidLoginFromConf(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions, BillingPageActions billingPageActions,
-                                                       ReviewPageActions reviewPageActions, ShoppingBagPageActions shoppingBagPageActions, String email, String password, String parentWindow) {
-        waitUntilElementDisplayed(paypalSbModal);
-        click(paypalSbModal);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLogin_WrongID(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, shoppingBagPageActions, email, password, parentWindow);
-    }
-
 
     /*Created By Pooja
      * This Method clicks on recommended products as per index*/

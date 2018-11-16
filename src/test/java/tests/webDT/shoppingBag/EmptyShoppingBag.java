@@ -119,7 +119,6 @@ public class EmptyShoppingBag extends BaseTest {
         }
         headerMenuActions.navigateToShoppingBag(shoppingBagDrawerActions, shoppingBagPageActions);
         if (store.equalsIgnoreCase("US")) {
-            AssertFailAndContinue(shoppingBagPageActions.clickMPREspot(mprOverlayActions), "Click on mpr overlay and check mpr overlay is getting displayed");
 //This is removed    AssertFailAndContinue(mprOverlayActions.closeMpr_Overlay(shoppingBagPageActions), "Close the mpr overlay and check user retained in shopping bag page");
         } else if (store.equalsIgnoreCase("CA")) {
             AssertFailAndContinue(shoppingBagPageActions.clickAirMilesBannerAndValidateContent(), "Clicking on Airmiles banner navigates to the airmiles content page");
@@ -135,8 +134,6 @@ public class EmptyShoppingBag extends BaseTest {
         if (user.equalsIgnoreCase("registered")) {
             clickLoginAndLoginAsRegUserAndCloseDrawer(emailAddressReg, password);
         }
-        footerActions.clickOnGiftCardsLink(giftCardsPageActions);
-        giftCardsPageActions.clickSendAGiftCardsButton(productDetailsPageActions);
         productDetailsPageActions.addGCFromPDP(headerMenuActions);
         headerMenuActions.navigateToShoppingBag(shoppingBagDrawerActions, shoppingBagPageActions);
         AssertFailAndContinue(shoppingBagPageActions.clickRemoveLinkByPosition(1), "Clicking on remove link removes the gift card");

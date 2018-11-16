@@ -312,46 +312,6 @@ public class MobileBaseTest extends PageInitializer {
         return itemsAndQuantity;
     }
 
-    public Map<String, String> getParaBySettingShipmentXml(String shipViaCode, Map<String, String> shipItemsAndQty) {
-        Map<String, String> para = new HashMap<>();
-        String doNum = domSearchOrderPageActions.getDONumFromDistributionOrderDetails();
-        String randomNum = domSearchOrderPageActions.getRandomNumber(18);
-        para.put("//ASNID", randomNum);
-        para.put("//LPNID", randomNum);
-        para.put("//ShipVia", shipViaCode);
-        para.put("//DistributionOrderID", doNum);
-        int i = 1;
-        for (Map.Entry<String, String> entryMap : shipItemsAndQty.entrySet()) {
-            String itemName = entryMap.getKey();
-            String itemQty = entryMap.getValue();
-            para.put("//LPNDetail[" + i + "]/ItemName", itemName);
-            String doLineNum = domSearchOrderPageActions.getDOLineNumByOrderedItem(itemName);
-            para.put("//LPNDetail[" + i + "]/DistributionOrderLineItemID", doLineNum);
-            para.put("//LPNDetail[" + i + "]/SkuSequenceNbr", doLineNum);
-            para.put("//LPNDetail[" + i + "]/LPNDetailQuantity/Quantity", itemQty);
-            para.put("//LPNDetail[" + i + "]/LPNDetailQuantity/ShippedAsnQuantity", itemQty);
-            i++;
-        }
-        return para;
-    }
-
-    public Map<String, String> getParaBySettingCancelXml(Map<String, String> cancelItemsAndQty) {
-        Map<String, String> para = new HashMap<>();
-        String doNum = domSearchOrderPageActions.getDONumFromDistributionOrderDetails();
-        para.put("//DistributionOrderId", doNum);
-        int i = 1;
-        for (Map.Entry<String, String> entryMap : cancelItemsAndQty.entrySet()) {
-            String itemName = entryMap.getKey();
-            String itemQty = entryMap.getValue();
-            para.put("//LineItem[" + i + "]/ItemName", itemName);
-            String doLineNum = domSearchOrderPageActions.getDOLineNumByOrderedItem(itemName);
-            para.put("//LineItem[" + i + "]/DoLineNbr", doLineNum);
-            para.put("//LineItem[" + i + "]/Quantity/OrderQty", itemQty);
-            i++;
-        }
-        return para;
-    }
-
     public List<String> convertCommaSeparatedStringToList(String items) {
         List<String> tokensList = new ArrayList<>();
         StringTokenizer tokens = new StringTokenizer(items, ",");
@@ -392,31 +352,6 @@ public class MobileBaseTest extends PageInitializer {
         return true;
 
     }
-
-
-    public boolean validateNeedHelpLink() {
-        mfooterActions.waitUntilElementDisplayed(mfooterActions.needHelpLink);
-        mfooterActions.click(mfooterActions.needHelpLink);
-        mfooterActions.switchToWindow();
-        AssertFailAndContinue(mfooterActions.waitUntilElementDisplayed(mmyAccountPageActions.helpcenter), "Verify clicking on need to help navigating to FAQ page");
-        mfooterActions.switchToParent();
-        return mfooterActions.waitUntilElementDisplayed(mfooterActions.needHelpLink);
-    }
-
-    public boolean validateLoginLink() {
-        mfooterActions.waitUntilElementDisplayed(mfooterActions.loginlink, 10);
-        mfooterActions.click(mfooterActions.loginlink);
-        return mfooterActions.waitUntilElementDisplayed(mloginPageActions.emailAddrField, 25);
-    }
-
-    public void changeByLanguageFromImgFlag(String language) {
-        mfooterActions.changeLanguageByLanguage(language);
-        AddInfoStep("Changed the language to " + language);
-        mheaderMenuActions.switchToDefaultFrame();
-        homePageActions.staticWait(2000);
-//        isPromoNotDisplaying();
-    }
-
 
     public String getAndVerifyOrderNumber(String testName) {
         orderNumber = mreceiptThankYouPageActions.getOrderNum();
@@ -703,23 +638,6 @@ public class MobileBaseTest extends PageInitializer {
             j++;
         }
         return upcNumsAndQtyToShip;
-    }
-
-    public void doDomPerfLogin(String userName, String password) {
-        if (domHomePageActions.waitUntilElementDisplayed(domHomePageActions.menuBtn, 5)) {
-
-        } else if (domHomePageActions.waitUntilElementDisplayed(domHomePageActions.userNameFld)) {
-            try {
-                domHomePageActions.fillText(domHomePageActions.userNameFld, userName);
-                domHomePageActions.fillText(domHomePageActions.passwordFld, password);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            domHomePageActions.staticWait();
-            domHomePageActions.click(domHomePageActions.loginBtn);
-            domHomePageActions.waitUntilElementDisplayed(domHomePageActions.menuBtn, 30);
-            domHomePageActions.refreshPage();
-        }
     }
 
     /*public String clickCreateNewAcctAndCreateNewAccountByRow(String rowName) {

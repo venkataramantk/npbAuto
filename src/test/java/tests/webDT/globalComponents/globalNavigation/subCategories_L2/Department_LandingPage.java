@@ -312,8 +312,6 @@ public class Department_LandingPage extends BaseTest {
             clickLoginAndLoginAsRegUserAndCloseDrawer(emailAddressReg,password);
         }
         AssertFailAndContinue(departmentLandingPageActions.validateDeptPageByName(deptName.get(7)), "Verify if the appropriate department name is getting displayed in the department page");
-        giftCardsPageActions.clickSendAGiftCardsButton(productDetailsPageActions);
-        AssertFailAndContinue(giftCardsPageActions.addGiftCardToBag(),"Verify that the user is able to add Gift card to bag");
         headerMenuActions.navigateToShoppingBag(shoppingBagDrawerActions,shoppingBagPageActions);
         AssertFailAndContinue(shoppingBagPageActions.editAnGiftCardFromSBPage(0),"Verify that the user is displayed with Gift card list in the edit drop down in SB page");
     }

@@ -592,12 +592,6 @@ public class CreateAccountActions extends CreateAccountRepo {
         return waitUntilElementDisplayed(loginPageActions.loginButton, 5);
     }
 
-    public boolean closeHeaderOverlay(FooterMPRCreditCardActions footerMPRCreditCardActions) {
-        waitUntilElementDisplayed(closeOverlay, 10);
-        click(closeOverlay);
-        return waitUntilElementDisplayed(footerMPRCreditCardActions.loginLink, 15);
-    }
-
     public void termsAndCondtionValidate() {
         staticWait(1000);
         click(createAccountLink);

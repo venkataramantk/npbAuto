@@ -57,13 +57,4 @@ public class MMyPlaceRewardsActions extends MMyRewardsActionsRepo {
         }
     }
 
-    public boolean clickLearnMoreLink(MRTPSAndWicActions mrtpsAndWicActions) {
-        if (waitUntilElementDisplayed(learnMoreLink, 10)) {
-            click(learnMoreLink);
-            return waitUntilElementDisplayed(mrtpsAndWicActions.loginLink);
-        } else {
-            addStepDescription("Learn More link is not displayed in MPR landing page");
-            return false;
-        }
-    }
 }

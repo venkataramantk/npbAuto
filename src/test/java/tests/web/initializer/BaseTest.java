@@ -241,47 +241,6 @@ public class BaseTest extends PageInitializer {
         return itemsAndQuantity;
     }
 
-
-    public Map<String, String> getParaBySettingShipmentXml(String shipViaCode, Map<String, String> shipItemsAndQty) {
-        Map<String, String> para = new HashMap<>();
-        String doNum = domSearchOrderPageActions.getDONumFromDistributionOrderDetails();
-        String randomNum = domSearchOrderPageActions.getRandomNumber(18);
-        para.put("//ASNID", randomNum);
-        para.put("//LPNID", randomNum);
-        para.put("//ShipVia", shipViaCode);
-        para.put("//DistributionOrderID", doNum);
-        int i = 1;
-        for (Map.Entry<String, String> entryMap : shipItemsAndQty.entrySet()) {
-            String itemName = entryMap.getKey();
-            String itemQty = entryMap.getValue();
-            para.put("//LPNDetail[" + i + "]/ItemName", itemName);
-            String doLineNum = domSearchOrderPageActions.getDOLineNumByOrderedItem(itemName);
-            para.put("//LPNDetail[" + i + "]/DistributionOrderLineItemID", doLineNum);
-            para.put("//LPNDetail[" + i + "]/SkuSequenceNbr", doLineNum);
-            para.put("//LPNDetail[" + i + "]/LPNDetailQuantity/Quantity", itemQty);
-            para.put("//LPNDetail[" + i + "]/LPNDetailQuantity/ShippedAsnQuantity", itemQty);
-            i++;
-        }
-        return para;
-    }
-
-    public Map<String, String> getParaBySettingCancelXml(Map<String, String> cancelItemsAndQty) {
-        Map<String, String> para = new HashMap<>();
-        String doNum = domSearchOrderPageActions.getDONumFromDistributionOrderDetails();
-        para.put("//DistributionOrderId", doNum);
-        int i = 1;
-        for (Map.Entry<String, String> entryMap : cancelItemsAndQty.entrySet()) {
-            String itemName = entryMap.getKey();
-            String itemQty = entryMap.getValue();
-            para.put("//LineItem[" + i + "]/ItemName", itemName);
-            String doLineNum = domSearchOrderPageActions.getDOLineNumByOrderedItem(itemName);
-            para.put("//LineItem[" + i + "]/DoLineNbr", doLineNum);
-            para.put("//LineItem[" + i + "]/Quantity/OrderQty", itemQty);
-            i++;
-        }
-        return para;
-    }
-
     public List<String> convertCommaSeparatedStringToList(String items) {
         List<String> tokensList = new ArrayList<>();
         StringTokenizer tokens = new StringTokenizer(items, ",");
@@ -1024,26 +983,6 @@ public class BaseTest extends PageInitializer {
 
     }
 
-
-    public void doDomPerfLogin(String userName, String password) {
-        if (domHomePageActions.waitUntilElementDisplayed(domHomePageActions.menuBtn, 5)) {
-
-        } else if (domHomePageActions.waitUntilElementDisplayed(domHomePageActions.userNameFld)) {
-            try {
-                domHomePageActions.fillText(domHomePageActions.userNameFld, userName);
-                domHomePageActions.fillText(domHomePageActions.passwordFld, password);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            domHomePageActions.staticWait();
-            domHomePageActions.click(domHomePageActions.loginBtn);
-            domHomePageActions.waitUntilElementDisplayed(domHomePageActions.menuBtn, 30);
-            domHomePageActions.refreshPage();
-        }
-
-
-    }
-
     public WebDriver closeAndReOpenBrowserAndNavigateToURL() throws Exception {
 
         driver.close();
@@ -1081,14 +1020,6 @@ public class BaseTest extends PageInitializer {
         driver = getDriver();
         initializePages(driver);
     }
-
-    public void refreshDomPage() {
-        domHomePageActions.refreshPage();
-        if (domHomePageActions.isAlertPresent()) {
-            domHomePageActions.acceptAlert();
-        }
-    }
-
 
     public String getPhase2DetailsCellValueBySheetRowAndColumn(String sheetName, String rowName, String columnName) {
         Map<String, String> recordByRowName = phase2DetailsExcelReader.getExcelData(sheetName, rowName);

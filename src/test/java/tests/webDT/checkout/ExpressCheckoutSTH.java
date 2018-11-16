@@ -105,7 +105,6 @@ public class ExpressCheckoutSTH extends BaseTest {
 
         addToBagBySearching(searchKeywordAndQty);
         AssertFailAndContinue(shoppingBagPageActions.clickProceedToCheckoutExpress(reviewPageActions), "Clicked on the Checkout button initiating Express Checkout");
-        AssertFailAndContinue(!plccActions.verifyPlCCForm(), "Verify PLCC form is not displayed for non-eligible billling address");
         AssertFailAndContinue(reviewPageActions.validateProgressbarStatus(), "Verify progress bar status as follow \n Shipping and billing -completed(tick mark)\n" +
                 "Review page - active(Double circle)");
         AssertFailAndContinue(reviewPageActions.verifyOrderExpReviewPageSTH(), "Verify the order review page for ship to home products");
@@ -504,7 +503,6 @@ public class ExpressCheckoutSTH extends BaseTest {
         AssertFailAndContinue(billingPageActions.payWithPayPal(), "Continue payment with PayPal option");
 //        billingPageActions.clickProceedWithPaypalModalButton(payPalPageActions);
         if (!env.equalsIgnoreCase("prod")) {
-            AssertFailAndContinue(payPalPageActions.paypalLogin(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, es.get("UserName"), es.get("Password"), parentWindow), "Enter the valid paypal credentials and click on the login");
             AssertFailAndContinue(reviewPageActions.clickSubmOrderButton(orderConfirmationPageActions), "Clicked on the Submit Order button in the Order Review section.");
             getAndVerifyOrderNumber("changeShippingMethodAndPlaceOrder");
         }

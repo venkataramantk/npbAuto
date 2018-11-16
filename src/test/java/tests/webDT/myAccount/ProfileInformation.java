@@ -245,9 +245,6 @@ public class ProfileInformation extends BaseTest {
         if(!env.equalsIgnoreCase("prod") && !env.equalsIgnoreCase("prodstaging")) {
             AssertFailAndContinue(myAccountPageActions.applyRewardsAndCoupons(), "Apply Rewards from My Account Page");
         }
-        footerActions.clickOnGiftCardsLink(giftCardsPageActions);
-        giftCardsPageActions.clickSendAGiftCardsButton(productDetailsPageActions);
-        giftCardsPageActions.addGiftCardToBag();
         headerMenuActions.staticWait(4000);
         headerMenuActions.waitUntilElementDisplayed(headerMenuActions.searchBox,3);
         addToBagBySearching(searchKeywordAndQty);

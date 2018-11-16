@@ -386,10 +386,6 @@ public class ShippingPageActions extends ShippingPageRepo {
         return waitUntilElementDisplayed(giftWrappingStandard);
     }
 
-    public boolean clickOnGiftOptionEditLink(GiftOptionOverlayActions giftOptionOverlayActions) {
-        click(editGiftOptions);
-        return waitUntilElementDisplayed(giftOptionOverlayActions.btn_Next, 30);
-    }
     public boolean validateFieldsInShippingPage() {
         if (waitUntilElementDisplayed(firstNameFld) &&
                 waitUntilElementDisplayed(lastNameFld) &&

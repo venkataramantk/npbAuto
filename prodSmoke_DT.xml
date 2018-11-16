@@ -9,7 +9,6 @@
             <run>
                 <exclude name="guestonly"/>
                 <exclude name="recommendations"/>
-                <exclude name="caonly"/>
                 <exclude name="giftcard"/>
                 <exclude name="paypal"/>
                 <include name="production"/>
@@ -27,12 +26,6 @@
 
             <class name="tests.webDT.globalComponents.header.header_645.Favorites_Header"/>
 
-            <class name="tests.webDT.shoppingBag.bopis.BOPIS_635"/>
-
-            <class name="tests.webDT.checkout.CombinedOrder"/>
-
-            <class name="tests.webDT.checkout.BOPISOrder"/>
-
             <class name="tests.webDT.checkout.Checkout_OrderReview_STH"/>
 
             <class name="tests.webDT.checkout.CheckoutFieldValidations"/>
@@ -41,14 +34,7 @@
 
             <class name="tests.webDT.checkout.BillingPage"/>
 
-            <class name="tests.webDT.checkout.Checkout_OrderLedger_Bopis"/>
-
-            <class name="tests.webDT.checkout.CheckoutLoginCreateAccBOPIS"/>
-
             <class name="tests.webDT.checkout.CheckoutLoginCreateAccSTH"/>
-
-            <class name="tests.webDT.shoppingBag.ShoppingBag2_DT638"/>
-
 
         </classes>
     </test>

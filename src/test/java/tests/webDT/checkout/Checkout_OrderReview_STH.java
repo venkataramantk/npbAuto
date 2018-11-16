@@ -225,7 +225,6 @@ public class Checkout_OrderReview_STH extends BaseTest {
         AssertFailAndContinue(billingPageActions.payWithPayPal(), "Continue payment with PayPal option");
 //        billingPageActions.clickProceedWithPaypalModalButton(payPalPageActions);
         if(!env.equalsIgnoreCase("prod")) {
-            AssertFailAndContinue(payPalPageActions.paypalLogin(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, es.get("UserName"), es.get("Password"), parentWindow), "Enter the valid paypal credentials and click on the login");
             String firstemail = reviewPageActions.getText(reviewPageActions.emailID);
             reviewPageActions.clickOnShippingAccordion(shippingPageActions);
             shippingPageActions.clickNextBillingButton(billingPageActions);
@@ -422,7 +421,6 @@ public class Checkout_OrderReview_STH extends BaseTest {
         String parentWindow = driver.getWindowHandle();
         AssertFailAndContinue(billingPageActions.payWithPayPal(), "Continue payment with PayPal option");
 //        billingPageActions.clickProceedWithPaypalModalButton(payPalPageActions);
-        AssertFailAndContinue(payPalPageActions.paypalLogin(paypalOrderDetailsPageActions, billingPageActions, reviewPageActions, es.get("UserName"), es.get("Password"),parentWindow), "Enter the valid paypal credentials and click on the login");
         AssertFailAndContinue(reviewPageActions.clickReturnToBillingLink(billingPageActions), "clicking on return to billing link navigates back to the the biling page");
         AssertFailAndContinue(billingPageActions.clickApplyOnGiftCard(), "changing payment method from paypal to gift card and applied to order total at billing page");
         AssertFailAndContinue(billingPageActions.isRemainingBalanceNotEditable(), "The remaining balnace shouldn't editable at billing page");

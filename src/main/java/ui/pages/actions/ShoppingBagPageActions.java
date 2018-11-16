@@ -731,21 +731,6 @@ public class ShoppingBagPageActions extends ShoppingBagPageRepo {
         return bagIcon;
     }
 
-    public boolean clickPaypalButton(PayPalPageActions payPalPageActions) {
-        waitUntilElementDisplayed(paypalBtn, 20);
-        click(paypalBtn);
-        return  switchToPaypalWindow(payPalPageActions);
-//        staticWait(4000);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        return waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-    }
-    public boolean switchToPaypalWindow(PayPalPageActions payPalPageActions){
-        String currentWindow = driver.getWindowHandle();
-        staticWait(5000);
-        switchToWindow(currentWindow);
-        return waitUntilElementDisplayed(payPalPageActions.payPalLoginButton,30);
-    }
-
     public boolean validateProdDetails() {
         if (isDisplayed(getFirstElementFromList(prodNames)) &&
                 isDisplayed(getFirstElementFromList(editLnks)) &&
@@ -1047,18 +1032,6 @@ public class ShoppingBagPageActions extends ShoppingBagPageRepo {
             return true;
         } else {
             addStepDescription("Clicking on checkout button as guest not navigating to shipping page");
-            return false;
-        }
-    }
-
-    public boolean clickMPREspot(MPROverlayActions mprOverlayActions) {
-        scrollDownToElement(myPlaceRewardsEspot);
-        boolean isMprEspot = waitUntilElementDisplayed(myPlaceRewardsEspot, 20);
-        if (isMprEspot) {
-            click(myPlaceRewardsEspot);
-            return waitUntilElementDisplayed(mprOverlayActions.applyButton, 20);
-        } else {
-            Assert.fail("myPlaceRewardsEspot is not available at my account page " + isMprEspot);
             return false;
         }
     }
@@ -1391,33 +1364,6 @@ public class ShoppingBagPageActions extends ShoppingBagPageRepo {
     public boolean clickProdPresentByTitleOnSB(ProductDetailsPageActions productDetailsPageActions, String title) {
         click(productByTitle(title));
         return waitUntilElementsAreDisplayed(productDetailsPageActions.breadcrumb_values, 5);
-    }
-
-    public boolean clickOnPayPalButtonFromBag(PaypalOrderDetailsPageActions paypalOrderDetailsPageActions, PayPalPageActions payPalPageActions, BillingPageActions billingPageActions, String parentWindow) {
-        waitUntilElementDisplayed(paypalBtn, 3);
-        click(paypalBtn);
-//        payPalPageActions.switchToContinuePayPalFrameIfAvailable();
-//        waitUntilElementDisplayed(payPalPageActions.proceedPaypalBtn, 5);
-//        payPalPageActions.click(payPalPageActions.proceedPaypalBtn);
-//        waitForFrameToLoad(0, 60);
-        payPalPageActions.payPalNewWindow(billingPageActions);
-        return payPalPageActions.paypalLoginProd(paypalOrderDetailsPageActions, billingPageActions, parentWindow);
-    }
-
-    public boolean clickOnCheckoutBtnIntStore(String user, LoginPageActions loginPageActions, PayPalPageActions payPalPageActions) {
-        staticWait(1000);
-        scrollUpToElement(checkoutBtn);
-        click(checkoutBtn);
-        if (user.equalsIgnoreCase("guest")) {
-            waitUntilElementDisplayed(loginPageActions.continueAsGuestButton, 20);
-            click(continueAsGuest);
-        }
-        if (waitUntilElementDisplayed(payPalPageActions.continueButton, 30)) {
-            return true;
-        } else {
-            addStepDescription("Clicking on checkout button as registered is either not navigating to shipping or review page for express");
-            return false;
-        }
     }
 
     public boolean editAnGiftCardFromSBPage(int i) {

@@ -2630,17 +2630,6 @@ public class MyAccountPageActions extends MyAccountPageRepo {
         return waitUntilElementDisplayed(updatedSuccessMsg, 20);
     }
 
-    public boolean clickMPREspot(MPROverlayActions mprOverlayActions) {
-        boolean isMprEspot = waitUntilElementDisplayed(myPlaceRewardsEspot, 20);
-        if (isMprEspot) {
-            click(myPlaceRewardsEspot);
-            return waitUntilElementDisplayed(mprOverlayActions.applyButton, 20);
-        } else {
-            Assert.fail("myPlaceRewardsEspot is not available at my account page " + isMprEspot);
-            return false;
-        }
-    }
-
     public boolean verifyBirthdaySavings(String childText1) {
 
         boolean child_Text = getText(child_Name).replaceAll("\"", "").contains(childText1);

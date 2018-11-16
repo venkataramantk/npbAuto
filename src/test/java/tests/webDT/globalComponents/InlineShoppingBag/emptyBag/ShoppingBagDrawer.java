@@ -385,7 +385,6 @@ public class ShoppingBagDrawer extends BaseTest {
         String parentWindow = driver.getWindowHandle();
         headerMenuActions.clickShoppingBagIcon(shoppingBagDrawerActions);
         AssertFailAndContinue(shoppingBagDrawerActions.paypalButtonCheck(), "check PayPal button display for SB drawer");
-        AssertFailAndContinue(shoppingBagDrawerActions.clickOnPayPalButtonFromDrawerProd(paypalOrderDetailsPageActions, payPalPageActions, billingPageActions, parentWindow),"Verify the PayPal initiated from SB inline Drawer");
         headerMenuActions.closeTheVisibleDrawer();
         if(!env.equalsIgnoreCase("prod")){
 
@@ -421,15 +420,12 @@ public class ShoppingBagDrawer extends BaseTest {
         productDetailsPageActions.selectASize();
         productDetailsPageActions.clickAddToBag();
         headerMenuActions.clickShoppingBagIcon(shoppingBagDrawerActions);
-        AssertFailAndContinue(productDetailsPageActions.proceedToPaypalFromConfProd(paypalOrderDetailsPageActions,payPalPageActions,billingPageActions,shoppingBagDrawerActions,parentWindow),"Verify the PayPal initiated from SB confirmation modal");
 //        shoppingBagDrawerActions.click(shoppingBagDrawerActions.continueShoppingLnk);
         headerMenuActions.closeTheVisibleDrawer();
         headerMenuActions.navigateToShoppingBag(shoppingBagDrawerActions,shoppingBagPageActions);
-        AssertFailAndContinue(shoppingBagPageActions.clickOnPayPalButtonFromBag(paypalOrderDetailsPageActions,payPalPageActions,billingPageActions,parentWindow),"Verify the PayPal initiated fro SB page");
         shoppingBagPageActions.clickOnCheckoutBtnAsReg(shippingPageActions,reviewPageActions);
         AssertFailAndContinue(shippingPageActions.enterShippingDetailsWithoutCHeckbox_Reg(billingPageActions, shipDetailUS.get("fName"), shipDetailUS.get("lName"), shipDetailUS.get("addressLine1"), shipDetailUS.get("addressLine2"), shipDetailUS.get("city"), shipDetailUS.get("stateShortName"), shipDetailUS.get("zip"), shipDetailUS.get("phNum"), sm.get("shipValue")), "Entered the Shipping address and clicked on the Next Billing button.");
         billingPageActions.waitUntilElementDisplayed(billingPageActions.paypalRadioButton,3);
-        AssertFailAndContinue(billingPageActions.clickOnPayPalButtonFromBillingProd(paypalOrderDetailsPageActions,payPalPageActions,billingPageActions,parentWindow),"Verify the PayPal login from Billing Page");
 
     }
 

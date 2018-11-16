@@ -15,6 +15,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -130,8 +131,6 @@ public class BrowserInitializer {
                     profile.setPreference("security.enable_java", true);
 
                     profile.setPreference("plugin.state.java", 2);
-                    capabilities.setCapability(FirefoxDriver.PROFILE, profile);
-                    driver = new FirefoxDriver(capabilities);
                     driver.manage().window().maximize();
                     break;
                 case "CHROME":
@@ -139,12 +138,10 @@ public class BrowserInitializer {
                         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/bin/chromedriver");
                     else if (os.contains("Windows"))
                         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/bin/chromedriver.exe");
+//                    ChromeDriverService service = new ChromeDriverService.Builder().usingDriverExecutable(new File(System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/bin/chromedriver"))).usingAnyFreePort().build();
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("disable-infobars");
-                    capabilities = DesiredCapabilities.chrome();
-                    capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-                    driver = new ChromeDriver(capabilities);
-                    driver.manage().window().maximize();
+                    options.setCapability(ChromeOptions.CAPABILITY, options);
+                    driver = new ChromeDriver(options.addArguments("start-maximized"));
                     break;
                 case "INTERNET EXPLORER":
 

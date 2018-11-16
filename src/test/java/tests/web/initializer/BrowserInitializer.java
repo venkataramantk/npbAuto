@@ -140,8 +140,10 @@ public class BrowserInitializer {
                         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/bin/chromedriver.exe");
 //                    ChromeDriverService service = new ChromeDriverService.Builder().usingDriverExecutable(new File(System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"/bin/chromedriver"))).usingAnyFreePort().build();
                     ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--start-maximized");
+//                    options.addArguments("--start-fullscreen");
                     options.setCapability(ChromeOptions.CAPABILITY, options);
-                    driver = new ChromeDriver(options.addArguments("start-maximized"));
+                    driver = new ChromeDriver(options);
                     break;
                 case "INTERNET EXPLORER":
 

@@ -25,3 +25,5 @@ src/test/test.iml
 .project
 .settings
 .classpath
+
+*.iml

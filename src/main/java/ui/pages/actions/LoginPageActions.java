@@ -10,8 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 import ui.pages.repo.LoginPageRepo;
 
 /**
- * Created by skonda on 6/6/2016.
+ * Created by venkat on 11/29/2018.
  */
+
+
 public class LoginPageActions extends LoginPageRepo {
     WebDriver driver;
     Logger logger = Logger.getLogger(LoginPageActions.class);
@@ -22,7 +24,7 @@ public class LoginPageActions extends LoginPageRepo {
         PageFactory.initElements(driver, this);
     }
 
-     public boolean loginAsRegisteredUserFromLoginForm(String emailAddr, String pwd) {
+     /*public boolean loginAsRegisteredUserFromLoginForm(String emailAddr, String pwd) {
         if (isDisplayed(welcomeText)) {
             clearAndFillText(emailFldOnLoginForm, emailAddr);
             clearAndFillText(pwdFldOnLoginForm, pwd);
@@ -235,10 +237,10 @@ public class LoginPageActions extends LoginPageRepo {
     }
 
     public boolean clickCreateAccountLink(CreateAccountActions createAccountActions) {
-   /*     staticWait();
+   *//*     staticWait();
         click(createAccountActions.createAcctTab);
         waitUntilElementDisplayed(createAccountActions.createAcctTab,5);
-        return waitUntilElementDisplayed(createAccountActions.createAccountButton,10);*/
+        return waitUntilElementDisplayed(createAccountActions.createAccountButton,10);*//*
         waitUntilElementDisplayed(createAccLink, 5);
         click(createAccLink);
         return waitUntilElementDisplayed(createAccountActions.firstNameField, 5);
@@ -246,10 +248,10 @@ public class LoginPageActions extends LoginPageRepo {
     }
 
     public boolean clickCreateAccButtonFromDrawer(CreateAccountActions createAccountActions) {
-   /*     staticWait();
+   *//*     staticWait();
         click(createAccountActions.createAcctTab);
         waitUntilElementDisplayed(createAccountActions.createAcctTab,5);
-        return waitUntilElementDisplayed(createAccountActions.createAccountButton,10);*/
+        return waitUntilElementDisplayed(createAccountActions.createAccountButton,10);*//*
         waitUntilElementDisplayed(createAccountBtn, 5);
         click(createAccountBtn);
         return waitUntilElementDisplayed(createAccountActions.firstNameField, 5);
@@ -375,5 +377,5 @@ public class LoginPageActions extends LoginPageRepo {
             return true;
         else
             return false;
-    }
+    }*/
 }

@@ -39,9 +39,9 @@ public class ReportReader extends BaseTest{
         driver = getDriver();
         String int3Regression="http://10.18.3.192:8080/jenkins/view/UATLIVE1/job/Phase2_Regression_UATLIVE1_Firefox/HTML_Report/Results/Run_1/CurrentRun.html";
         driver.get(int3Regression);
-        initializePages(driver);
+        initializePages(driver);/*
         yesterdaysDate = homePageActions.getDateTimeByAddingDays("dd-MMM-yy", 0);
-        dayBeforeYesterdayData =homePageActions.getDateTimeByAddingDays("dd-MMM-yy", -1);
+        dayBeforeYesterdayData =homePageActions.getDateTimeByAddingDays("dd-MMM-yy", -1);*/
         excelFileName = System.getProperty("user.dir") + "\\" + "target\\" + "Report.xls";
         file = new File(excelFileName);
         if (file.exists())

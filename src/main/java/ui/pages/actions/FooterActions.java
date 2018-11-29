@@ -30,26 +30,9 @@ public class FooterActions extends FooterRepo {
 
     }
 
-    public boolean clickOnMyAccountLink(MyAccountPageActions myAccountPageActions) {
-        click(footerLinksByName("My Account"));
-        return myAccountPageActions.isAccountPageDisplayed();
-    }
-
-    public boolean clickOnMyAccountAndVerifyRememberedUserLogin(LoginDrawerActions loginDrawerActions) {
-        click(footerLinksByName("My Account"));
-        return waitUntilElementDisplayed(loginDrawerActions.rememberedLogout, 30);
-    }
-
     public boolean clickOnSiteMapLink(SiteMapPageActions siteMapPageActions) {
         click(siteMapLink);
         return waitUntilElementDisplayed(siteMapPageActions.lbl_TCP);
-    }
-
-    public boolean clickOnCreateAnAccount(CreateAccountActions createAccountActions) {
-        waitUntilElementDisplayed(link_CreateAnAccount, 30);
-        click(link_CreateAnAccount);
-        return waitUntilElementDisplayed(createAccountActions.createAccountButton, 30);
-
     }
 
     public int footerLinksCount() {
@@ -346,11 +329,6 @@ public class FooterActions extends FooterRepo {
         return currentUrl.contains(urlValue);
     }
 
-    public boolean clickOnFavoritesAsGuest(WishListDrawerActions wishListDrawerActions) {
-        click(link_Fav);
-        return waitUntilElementDisplayed(wishListDrawerActions.emailAddrField, 30);
-    }
-
     public boolean clickOnLinkDataIdAndValidateURL(String linkName, String urlValue) {
         scrollDownUntilElementDisplayed(footerLinkDataId(linkName));
         click(footerLinkDataId(linkName));
@@ -616,14 +594,6 @@ public class FooterActions extends FooterRepo {
 //   clearAndFillText(phoneNumberForm,"qwertryuu");
     //      return waitUntilElementDisplayed();}
 
-    public boolean clickOnFooterAndFavIcon(String linkName, LoginPageActions loginPageActions) {
-
-        scrollDownUntilElementDisplayed(footerLinksByName(linkName));
-        click(footerLinksByName(linkName));
-        staticWait(5000);
-        return waitUntilElementDisplayed(loginPageActions.emailAddrField, 3);
-    }
-
     public boolean mobileAppRedirection(String email) {
         waitUntilElementDisplayed(signUpEmail, 5);
         clearAndFillText(signUpEmail, email);
@@ -631,36 +601,6 @@ public class FooterActions extends FooterRepo {
         click(submitButton);
         staticWait(5000);
         return waitUntilElementDisplayed(shopNowButton, 5) && waitUntilElementDisplayed(locateAStore, 5);
-    }
-
-    public boolean addRecommendationProdCard(ProductCardViewActions productCardViewActions) {
-        boolean prodAvailable = waitUntilElementsAreDisplayed(prodWithPrice, 10);
-
-        if (prodAvailable) {
-            scrollDownToElement(prodWithPrice.get(0));
-            staticWait(6000);
-            mouseHover(prodWithPrice.get(0));
-            staticWait(2000);
-            mouseHover(prodWithPrice.get(0));
-            click(addToBagIcon.get(0));
-            staticWait(2000);
-        }
-
-        if (!prodAvailable) {
-            waitUntilElementDisplayed(navButton, 3);
-            if (isDisplayed(navButton)) {
-                click(navButton);
-                staticWait(3000);
-                waitUntilElementDisplayed(prodWithPrice.get(0), 4);
-                mouseHover(prodWithPrice.get(0));
-                click(addToBagIcon.get(0));
-            } else {
-                Assert.assertFalse(false, "The product with price and the next arrow navigation buttons are not available");
-            }
-        }
-
-        return waitUntilElementDisplayed(productCardViewActions.addToBagBtn, 3);
-
     }
 
     public boolean productRecommDisplayValidation() {
@@ -690,25 +630,8 @@ public class FooterActions extends FooterRepo {
         return waitUntilElementDisplayed(favIconEnabled.get(0));
     }
 
-    public boolean addProdToFav_Guest(LoginPageActions loginPageActions) {
-        mouseHover(prodWithPrice.get(0));
-        waitUntilElementsAreDisplayed(addToBagIcon, 5);
-        waitUntilElementsAreDisplayed(addToFavIcon, 5);
-        if (addToFavIcon.size() >= 1) {
-            click(addToFavIcon.get(0));
-            staticWait(3000);
-            return waitUntilElementDisplayed(loginPageActions.loginButton, 20);
-        }
-        return false;
-    }
-
     public int getProductRecommProdOnEmptyBag() {
         return prodRecommendation.size();
-    }
-
-    public boolean clickOnItemAtProdRecommByPos(int i, ProductDetailsPageActions productDetailsPageActions) {
-        click(prodRecommendation.get(i - 1));
-        return waitUntilElementDisplayed(productDetailsPageActions.addToBag);
     }
 
     public boolean checkShipToModal(String store) {
@@ -786,19 +709,6 @@ public class FooterActions extends FooterRepo {
             Assert.fail("There are no products available with price in recommendadtions");
             return false;
         }
-    }
-
-    public boolean addProdToFav_Guest_login(String userName, String Password) {
-        mouseHover(prodWithPriceByPos(1));
-        staticWait();
-        click(addToFavIcon.get(0));
-        LoginPageActions loginPageActions = new LoginPageActions(driver);
-        loginPageActions.clearAndFillText(loginPageActions.emailAddrField, userName);
-        loginPageActions.clearAndFillText(loginPageActions.passwordField, Password);
-        loginPageActions.click(loginPageActions.loginButton);
-        staticWait(2000);
-        mouseHover(prodWithPriceByPos(1));
-        return waitUntilElementDisplayed(favIconEnabled.get(0));
     }
 
     public void clickAddToBag() {

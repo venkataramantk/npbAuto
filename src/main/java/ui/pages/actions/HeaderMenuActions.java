@@ -24,7 +24,7 @@ public class HeaderMenuActions extends HeaderMenuRepo {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isLoginDisplaying() {
+    /*public boolean isLoginDisplaying() {
         return waitUntilElementDisplayed(loginLinkHeader);
     }
 
@@ -38,7 +38,7 @@ public class HeaderMenuActions extends HeaderMenuRepo {
         }
         waitUntilElementDisplayed(createAccountLink, 30);
         click(createAccountLink);
-        return waitUntilElementDisplayed(createAccountActions.createAccountButton, 30) /*&& createAccountActions.createAccountButton.isEnabled()*/;
+        return waitUntilElementDisplayed(createAccountActions.createAccountButton, 30) *//*&& createAccountActions.createAccountButton.isEnabled()*//*;
     }
 
     public boolean clickCreateAccountOverlay(OverlayHeaderActions overlayHeaderActions, CreateAccountActions createAccountActions) {
@@ -458,11 +458,11 @@ public class HeaderMenuActions extends HeaderMenuRepo {
         return isSearchKeywordDisplaying && waitUntilElementDisplayed(searchResultsPageActions.productImageByPosition(1), 30);
     }
 
-    /**
+    *//**
      * Verify if paypal button is displayed in Add to bag notification
      *
      * @return true if paypal button is displayed
-     */
+     *//*
     public boolean verifyPaypalFromNotificationWindow() {
         waitUntilElementDisplayed(addToBagNotification);
         return waitUntilElementDisplayed(paypalFromNotification, 5);
@@ -719,8 +719,8 @@ public class HeaderMenuActions extends HeaderMenuRepo {
         return waitUntilElementDisplayed(loginPageActions.continueAsGuestButton, 30);
     }
 
-    /*Created By Pooja on 04-May-2018
-     This method Hover over Accessories header and click on Girls sub Menu*/
+    *//*Created By Pooja on 04-May-2018
+     This method Hover over Accessories header and click on Girls sub Menu*//*
     public boolean clickGirlsUnderAccessoriesCategory(CategoryDetailsPageAction categoryDetailsPageAction) {
         //mouseHover(categoryByPosition(7));
         mouseHover(accessories_l1Category);
@@ -735,8 +735,8 @@ public class HeaderMenuActions extends HeaderMenuRepo {
         return categoryDetailsPageAction.isCategoryLandPageDisplay();
     }
 
-    /*Created By Pooja on 12-May-2018
-     This method Hover over Girl header and click on Shoes sub Menu*/
+    *//*Created By Pooja on 12-May-2018
+     This method Hover over Girl header and click on Shoes sub Menu*//*
     public boolean clickShoesUnderGirlCategory(CategoryDetailsPageAction categoryDetailsPageAction) {
         //mouseHover(categoryByPosition(1));
         mouseHover(girl_l1Category);
@@ -751,8 +751,8 @@ public class HeaderMenuActions extends HeaderMenuRepo {
         return categoryDetailsPageAction.isCategoryLandPageDisplay();
     }
 
-    /*Created By Pooja on 12-May-2018
-     This method Hover over Girl header and click on Tops sub Menu*/
+    *//*Created By Pooja on 12-May-2018
+     This method Hover over Girl header and click on Tops sub Menu*//*
     public boolean clickTopsUnderGirlCategory(CategoryDetailsPageAction categoryDetailsPageAction) {
         //mouseHover(categoryByPosition(1));
         mouseHover(girl_l1Category);
@@ -829,5 +829,5 @@ public class HeaderMenuActions extends HeaderMenuRepo {
     public boolean clickDidYouMeantText(CategoryDetailsPageAction CategoryDetailsPageAction,ProductDetailsPageActions productDetailsPageActions) {
         click(didYouMeanText);
         return waitUntilElementsAreDisplayed(CategoryDetailsPageAction.productImages,3) || waitUntilElementDisplayed(productDetailsPageActions.productName, 3);
-    }
+    }*/
 }

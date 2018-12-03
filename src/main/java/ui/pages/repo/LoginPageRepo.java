@@ -10,11 +10,10 @@ import ui.UiBase;
  * Created by venkat on 11/29/2018.
  */
 
-public class LoginPageRepo extends UiBase {
+public class LoginPageRepo extends HeaderMenuRepo {
 
     @FindBy(id = "username")
-    public WebElement userNameTxt;
-
+    public WebElement emailTxt;
 
     @FindBy(id = "password")
     public WebElement passwordTxt;

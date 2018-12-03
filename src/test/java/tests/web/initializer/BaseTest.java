@@ -229,7 +229,7 @@ public class BaseTest extends PageInitializer {
 
         driver.get(EnvironmentConfig.getApplicationUrl());
         headerMenuActions.refreshPage();
-        headerMenuActions.waitUntilElementDisplayed(headerMenuActions.TCPLogo);
+        headerMenuActions.waitUntilElementDisplayed(headerMenuActions.logoAgview);
         return driver;
     }
 
@@ -342,12 +342,6 @@ public class BaseTest extends PageInitializer {
         driver.close();
     }
 
-    public void validateCarouselArrows() {
-        footerActions.click(footerActions.nextcarousel);
-        AssertFailAndContinue(true, "Verify When clicks on next carousel button next set of products displayed");
-        footerActions.click(footerActions.previouscarousel);
-        AssertFailAndContinue(true, "Verify When clicks on Previous carousel button previous set of products displayed");
-    }
 
     public String getTestCardDataFromExcel(String cvvIs, String cardType) {
         cardType = cardType.toUpperCase();

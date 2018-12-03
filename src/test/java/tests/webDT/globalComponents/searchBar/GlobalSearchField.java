@@ -38,11 +38,6 @@ public class GlobalSearchField extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void openBrowser(@Optional("US") String store) throws Exception {
         driver.get(EnvironmentConfig.getApplicationUrl());
-        if (store.equalsIgnoreCase("US")) {
-            headerMenuActions.addStateCookie("NJ");
-        } else if (store.equalsIgnoreCase("CA")) {
-            footerActions.changeCountryAndLanguage("CA", "English");
-        }
     }
 
     @AfterMethod(alwaysRun = true)
@@ -66,19 +61,7 @@ public class GlobalSearchField extends BaseTest {
 //         AssertFailAndContinue(baseApi.isSearchAPITriggered(store, "tops"),"The search API is triggered after typing with search term");
     }
 
-    @Test(priority = 1, dataProvider = dataProviderName, groups = {GLOBALCOMPONENT, SEARCH, SMOKE, PROD_REGRESSION})
-    public void searchUsingKeyWord(@Optional("US") String store, @Optional("registered") String user) {
-        setAuthorInfo("Jagadeesh");
-        setRequirementCoverage("Verify if the " + user + " user in the " + store + " Store is able to check following\n" +
-                "1. Verify Footer is not displayed when search results are loading" +
-                "2. validate Back To Top button\n" +
-                "3. Verify search results count");
-        Map<String, String> search_Term = excelReaderDT2.getExcelData("Search", "SearchBy");
 
-        AssertFailAndContinue(footerActions.validateBackToTop(), "Verify user scrolling down on search result page starts displaying Back to Top button with Back To Top text");
-        AssertFailAndContinue(!footerActions.waitUntilElementDisplayed(footerActions.footerSection, 3), "Verify as still lazy loading is loading product cards, no footer is displayed");
-        AssertFailAndContinue(footerActions.clickBackToTop(), "Verify user scrolling down on search result page starts displaying Back to Top button");
-    }
 }
 
 

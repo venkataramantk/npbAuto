@@ -87,17 +87,4 @@ public class CreateAccount extends BaseTest {
         }
 }
 
-    @Parameters(storeXml)
-    @Test(groups = {GLOBALCOMPONENT, REGRESSION, GUESTONLY, PROD_REGRESSION})
-    public void createNewAccountCAZip(@Optional("US") String store) {
-
-        setAuthorInfo("Venkat");
-        setRequirementCoverage("Verify that the  guest user in" + store + "store is," + " able to create an account using a Canadian Address.");
-        if (store.equalsIgnoreCase("US")) {
-            Map<String, String> acct = excelReaderDT2.getExcelData("CreateAccount", "CreateAccountCA");
-        }
-        if (store.equalsIgnoreCase("CA")) {
-            Map<String, String> acct = excelReaderDT2.getExcelData("CreateAccount", "CreateAccountUS");
-        }
-    }
 }

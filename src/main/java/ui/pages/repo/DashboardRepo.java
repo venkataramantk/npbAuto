@@ -16,13 +16,11 @@ public class DashboardRepo extends UiBase {
     @FindBy(xpath=".//*[@class='button-inner'][contains(.,'View All')]")
     public WebElement ViewAllBtn;
 
-    @FindBy(xpath = ".//*[@class='segment-button'][contains(.,'Small Animal')]")
-    public WebElement SmallAnimal_TypePopUp;
+    @FindBy(xpath = ".//*[@class='count-label']")
+    public WebElement CVIsAssignedNumber;
 
-    @FindBy(xpath = ".//*[@class='segment-button'][contains(.,'Large Animal')]")
-    public WebElement LargeAnimal_TypePopUp;
+    @FindBy(xpath = ".//*[@class='datatable-row-wrapper']")
+    public WebElement AllDashboardCVIsRecord;
 
-    @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'Start CVI')]")
-    public WebElement StartCVIButton_TypePopUp;
 
 }

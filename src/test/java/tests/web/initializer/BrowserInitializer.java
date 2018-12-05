@@ -425,12 +425,12 @@ public class BrowserInitializer {
         File testDirectory = new File(path);
         if (!testDirectory.exists()) {
             if (testDirectory.mkdirs()) {
-                System.out.println("Directory: " + path + " is created!");
+                System.out.println("HeaderRepo: " + path + " is created!");
             } else {
                 System.out.println("Failed to create directory: " + path);
             }
         } else {
-            System.out.println("Directory already exists: " + path);
+            System.out.println("HeaderRepo already exists: " + path);
         }
     }
 

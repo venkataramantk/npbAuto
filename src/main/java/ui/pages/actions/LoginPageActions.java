@@ -29,7 +29,7 @@ public class LoginPageActions extends LoginPageRepo {
         }
 
         try {
-            return waitUntilElementDisplayed(dashboardLnk, 5) || waitUntilElementDisplayed(logoAgview, 5);
+            return waitUntilElementDisplayed(dashboardLnk, 5) || waitUntilElementDisplayed(logoAgView, 5);
         } catch (Throwable t) {
             return true;
         }

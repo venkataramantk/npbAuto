@@ -21,7 +21,7 @@ public class LoginPageRepo extends HeaderMenuRepo {
     @FindBy(id="forgotPassword")
     public WebElement forgotPsswrdLnk;
 
-    @FindBy(css = ".login-bottom button")
+    @FindBy(css = "div.login-bottom button")
     public WebElement loginBtn;
 
     @FindBy(id = "register")

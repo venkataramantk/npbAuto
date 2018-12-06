@@ -2,7 +2,6 @@ package tests.web.initializer;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -229,7 +228,7 @@ public class BaseTest extends PageInitializer {
 
         driver.get(EnvironmentConfig.getApplicationUrl());
         headerMenuActions.refreshPage();
-        headerMenuActions.waitUntilElementDisplayed(headerMenuActions.logoAgview);
+        headerMenuActions.waitUntilElementDisplayed(headerMenuActions.logoAgView);
         return driver;
     }
 

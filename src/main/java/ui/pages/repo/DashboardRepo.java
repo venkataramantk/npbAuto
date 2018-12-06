@@ -10,10 +10,7 @@ import ui.UiBase;
 
 public class DashboardRepo extends UiBase {
 
-    @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'Create CVI')]")
-    public WebElement CreateCVIBtn;
-
-    @FindBy(xpath=".//*[@class='button-inner'][contains(.,'View All')]")
+    @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'View All')]")
     public WebElement ViewAllBtn;
 
     @FindBy(xpath = ".//*[@class='count-label']")

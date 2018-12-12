@@ -11,12 +11,12 @@ import ui.UiBase;
 public class LeftNavRepo extends UiBase {
 
     @FindBy(xpath = ".//*[contains(@class,'label')][contains(.,'Dashboard')]/ancestor::button")
-    public WebElement DashboardBtn;
+    public WebElement dashboardBtn;
 
     @FindBy(xpath = ".//*[contains(@class,'label')][contains(.,'CVI')]/ancestor::button")
-    public WebElement CVIBtn;
+    public WebElement cviBtn;
 
     @FindBy(xpath = ".//*[contains(@class,'label')][contains(.,'Directory')]/ancestor::button")
-    public WebElement DirectoryBtn;
+    public WebElement directoryBtn;
 
 }

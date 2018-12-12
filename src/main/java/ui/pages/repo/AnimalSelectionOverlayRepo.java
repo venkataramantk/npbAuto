@@ -11,12 +11,12 @@ import ui.UiBase;
 public class AnimalSelectionOverlayRepo extends UiBase {
 
     @FindBy(xpath = ".//*[@class='segment-button'][contains(.,'Small Animal')]")
-    public WebElement SmallAnimal_TypePopUp;
+    public WebElement smallAnimalTypeSelection;
 
     @FindBy(xpath = ".//*[@class='segment-button'][contains(.,'Large Animal')]")
-    public WebElement LargeAnimal_TypePopUp;
+    public WebElement largeAnimalTypeSelection;
 
     @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'Start CVI')]")
-    public WebElement StartCVIButton_TypePopUp;
+    public WebElement startCVIButtonTypePopUp;
 
 }

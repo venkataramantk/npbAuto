@@ -1,5 +1,6 @@
 package ui.pages.repo;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ui.UiBase;
@@ -13,16 +14,17 @@ import javax.naming.Name;
 public class HeaderRepo extends UiBase {
 
     @FindBy(xpath = ".//*[contains(@class,'av-active')][contains(.,'Dashboard')]")
-    public WebElement DashboardLbl;
+    public WebElement dashboardLbl;
 
     @FindBy(name = "arrow-dropdown")
-    public WebElement OrgDropdownLbl;
+    public WebElement orgDropdownLbl;
 
     @FindBy(xpath = ".//*[contains(@class,'button-inner')][contains(.,'Log out')]")
-    public WebElement LogoutButtonBtn;
+    public WebElement logoutButtonBtn;
 
-    @FindBy(xpath = ".//*[contains(@class,'logout')][contains(.,'#LoginID#')]")
-    public WebElement LoginIDTxtLbl;
+    public WebElement loginIDTxtLbl(String emailID){
+        return getDriver().findElement(By.xpath(".//*[contains(@class,'logout')][contains(.,'"+emailID+"')]"));
+    }
 
 
 }

@@ -11,16 +11,16 @@ import ui.UiBase;
 public class DashboardRepo extends UiBase {
 
     @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'Create CVI')]")
-    public WebElement CreateCVIBtn;
+    public WebElement createCVIBtn;
 
     @FindBy(xpath=".//*[@class='button-inner'][contains(.,'View All')]")
-    public WebElement ViewAllBtn;
+    public WebElement viewAllBtn;
 
     @FindBy(xpath = ".//*[@class='count-label']")
-    public WebElement CVIsAssignedNumber;
+    public WebElement countAssignedCVI;
 
     @FindBy(xpath = ".//*[@class='datatable-row-wrapper']")
-    public WebElement AllDashboardCVIsRecord;
+    public WebElement countCVIDashboard;
 
 
 }

@@ -8,7 +8,7 @@ import uiMobile.pages.actions.*;
 /**
  * Created by venkat on 12/03/2018.
  */
-public class PageInitializer extends BrowserInitializer {
+public class PageInitializer extends mobileInitializer {
     public HeaderMenuActions headerMenuActions;
     public LoginPageActions loginPageActions;
 

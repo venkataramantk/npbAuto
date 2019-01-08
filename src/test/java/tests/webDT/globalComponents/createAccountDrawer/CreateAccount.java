@@ -26,11 +26,11 @@ public class CreateAccount extends BaseTest {
     @Parameters({storeXml, usersXml})
     @BeforeClass(alwaysRun = true)
     public void initDriver(/*@Optional("US") String store, @Optional("guest") String user*/) throws Exception {
-        initializeDriver();
+        initializeMobileDriver();
         driver = getDriver();
         initializePages(driver);
         env = EnvironmentConfig.getEnvironmentProfile();
-        driver.get(EnvironmentConfig.getApplicationUrl());
+//        driver.get(EnvironmentConfig.getApplicationUrl());
 //        if (store.equalsIgnoreCase("US")) {
 //            emailAddressReg = clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelUS);
 //            password = getDT2TestingCellValueBySheetRowAndColumn("CreateAccount", rowInExcelUS, "Password");
@@ -41,20 +41,20 @@ public class CreateAccount extends BaseTest {
 //            emailAddressReg = clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelCA);
 //            password = getDT2TestingCellValueBySheetRowAndColumn("CreateAccount", rowInExcelCA, "Password");
 //        }
-        headerMenuActions.deleteAllCookies();
+//        headerMenuActions.deleteAllCookies();
     }
 
-    @Parameters(storeXml)
-    @BeforeMethod(alwaysRun = true)
-    public void openBrowser() throws Exception {
-        driver.get(EnvironmentConfig.getApplicationUrl());
-        driver.navigate().refresh();
-    }
+//    @Parameters(storeXml)
+//    @BeforeMethod(alwaysRun = true)
+//    public void openBrowser() throws Exception {
+//        driver.get(EnvironmentConfig.getApplicationUrl());
+//        driver.navigate().refresh();
+//    }
 
-    @AfterMethod(alwaysRun = true)
-    public void clearCookies() {
-        headerMenuActions.deleteAllCookies();
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void clearCookies() {
+//        headerMenuActions.deleteAllCookies();
+//    }
 
     @Parameters(storeXml)
     @Test(groups = {GLOBALCOMPONENT, REGRESSION, GUESTONLY, PROD_REGRESSION})

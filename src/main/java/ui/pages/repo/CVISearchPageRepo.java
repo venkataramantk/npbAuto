@@ -11,24 +11,24 @@ import ui.UiBase;
 public class CVISearchPageRepo extends UiBase {
 
     @FindBy(xpath=".//*[@class='count']")
-    public WebElement CVIsCount;
+    public WebElement cviCount;
 
     @FindBy(xpath = ".//*[@class='datatable-row-wrapper']")
-    public WebElement AllCVIsRecords;
+    public WebElement allCVIsRecords;
 
     @FindBy(xpath = ".//*[@role='button'][contains(.,'All')]")
-    public WebElement AllCVIsTab;
+    public WebElement allCVIsTab;
 
     @FindBy(xpath = ".//*[@role='button'][contains(.,'Pending')]")
-    public WebElement PendingCVIsTab;
+    public WebElement pendingCVIsTab;
 
     @FindBy(xpath = ".//*[@role='button'][contains(.,'Issued')]")
-    public WebElement IssuedCVIsTab;
+    public WebElement issuedCVIsTab;
 
     @FindBy(xpath = ".//*[@role='button'][contains(.,'Ready')]")
-    public WebElement ReadyCVIsTab;
+    public WebElement readyCVIsTab;
 
     @FindBy(xpath = ".//*[@role='button'][contains(.,'Draft')]")
-    public WebElement DraftCVIsTab;
+    public WebElement draftCVIsTab;
 
 }

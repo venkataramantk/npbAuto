@@ -8,7 +8,7 @@ import ui.UiBase;
 import javax.naming.Name;
 
 /**
- * Created by Balu on 12/03/2018.
+ * Created by Balu on 12/03/2018. ; Edited by Balu on 12/14/2018.
  */
 
 public class HeaderRepo extends UiBase {
@@ -16,15 +16,23 @@ public class HeaderRepo extends UiBase {
     @FindBy(xpath = ".//*[contains(@class,'av-active')][contains(.,'Dashboard')]")
     public WebElement dashboardLbl;
 
-    @FindBy(name = "arrow-dropdown")
+    @FindBy(xpath = ".//*[contains(@class,'av-global-nav')]//*[contains(.,'Your Data')]")
+    public WebElement yourDataLbl;
+
+    @FindBy(xpath = ".//*[contains(@class,'av-global-nav')]//*[contains(.,'Admin')]")
+    public WebElement adminLbl;
+
+    @FindBy(xpath = ".//*[contains(@class,'av-global-nav')]//*[contains(.,'Help')]")
+    public WebElement helpLbl;
+
+    @FindBy(xpath = ".//*[@name='arrow-dropdown']")
     public WebElement orgDropdownLbl;
 
     @FindBy(xpath = ".//*[contains(@class,'button-inner')][contains(.,'Log out')]")
     public WebElement logoutButtonBtn;
 
-    public WebElement loginIDTxtLbl(String emailID){
-        return getDriver().findElement(By.xpath(".//*[contains(@class,'logout')][contains(.,'"+emailID+"')]"));
-    }
+    @FindBy(xpath = ".//*[contains(@class,'logout')][contains(.,"+emailID+")]//label")
+    public WebElement loginIDTxtLbl;
 
 
 }

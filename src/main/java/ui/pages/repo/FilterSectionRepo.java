@@ -11,103 +11,103 @@ import ui.UiBase;
 public class FilterSectionRepo extends UiBase {
 
     @FindBy(xpath = ".//*[@class='filter-text' and contains(.,'Show')]")
-    public WebElement ShowFiltersLnk;
+    public WebElement showFiltersLnk;
 
     @FindBy(xpath = ".//*[@class='filter-text' and contains(.,'Hide')]")
-    public WebElement HideFiltersLnk;
+    public WebElement hideFiltersLnk;
 
     @FindBy(xpath = "(.//*[@class='searchbar-input'])[1]")
-    public WebElement CreatorFilterTxtbx;
+    public WebElement creatorFilterTxtbx;
 
     @FindBy(xpath = "(.//*[@class='searchbar-input'])[2]")
-    public WebElement AssignedVetFilterTxtbx;
+    public WebElement assignedVetFilterTxtbx;
 
     @FindBy(xpath = "(.//*[@class='searchbar-input'])[3]")
-    public WebElement ConsignorFilterTxtbx;
+    public WebElement consignorFilterTxtbx;
 
     @FindBy(xpath = "(.//*[@class='searchbar-input'])[4]")
-    public WebElement ConsigneeFilterTxtbx;
+    public WebElement consigneeFilterTxtbx;
 
     @FindBy(xpath = ".//*[@aria-labelledby='lbl-15']")
-    public WebElement AnimalNicknameFilterTxtbx;
+    public WebElement animalNicknameFilterTxtbx;
 
     @FindBy(xpath = ".//*[@id='select-10-0']//span[@class='button-inner']")
-    public WebElement LastUpdatedFilterDropdown;
+    public WebElement lastUpdatedFilterDropdown;
 
     @FindBy(id = "select-16-0")
-    public WebElement SpeciesFilterDropdown;
+    public WebElement speciesFilterDropdown;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Aquaculture')]")
-    public WebElement AquacultureFilterOptn;
+    public WebElement aquacultureFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Cattle')]")
-    public WebElement CattleFilterOptn;
+    public WebElement cattleFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Camelid')]")
-    public WebElement CamelidFilterOptn;
+    public WebElement camelidFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Goats')]")
-    public WebElement GoatsFilterOptn;
+    public WebElement goatsFilterOptn;
 
     @FindBy(xpath = "..//*[@class='label label-md'][contains(.,'Cervids')]")
-    public WebElement CervidsFilterOptn;
+    public WebElement cervidsFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Chickens')]")
-    public WebElement ChickensFilterOptn;
+    public WebElement chickensFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Equine')]")
-    public WebElement EquineFilterOptn;
+    public WebElement equineFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Sheep')]")
-    public WebElement SheepFilterOptn;
+    public WebElement sheepFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Swine')]")
-    public WebElement SwineFilterOptn;
+    public WebElement swineFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Turkeys')]")
-    public WebElement TurkeysFilterOptn;
+    public WebElement turkeysFilterOptn;
 
     @FindBy(xpath = "..//*[@class='label label-md'][contains(.,'Dogs')]")
-    public WebElement DogsFilterOptn;
+    public WebElement dogsFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Cats')]")
-    public WebElement CatsFilterOptn;
+    public WebElement catsFilterOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Other')]")
-    public WebElement OtherFilterOptn;
+    public WebElement otherFilterOptn;
 
     @FindBy(id = "select-17-0")
-    public WebElement SortByFilterDropdown;
+    public WebElement sortByFilterDropdown;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Date - Most Recent')]")
-    public WebElement MostRecentDateOptn;
+    public WebElement mostRecentDateOptn;
 
     @FindBy(xpath = ".//*[@class='label label-md'][contains(.,'Date - Oldest')]")
-    public WebElement OldestDateOptn;
+    public WebElement oldestDateOptn;
 
     @FindBy(xpath = ".//*[@id='lbl-67'][contains(.,'Animal')]")
-    public WebElement AnimalOptn;
+    public WebElement animalOptn;
 
     @FindBy(xpath = ".//*[@class='input-wrapper'][contains(.,'Last 15 days')]")
-    public WebElement LastUpdated15days;
+    public WebElement lastUpdated15days;
 
     @FindBy(xpath = ".//*[@class='input-wrapper'][contains(.,'Last 30 days')]")
-    public WebElement LastUpdated30days;
+    public WebElement lastUpdated30days;
 
     @FindBy(xpath = ".//*[@class='input-wrapper'][contains(.,'Last Week')]")
-    public WebElement LastUpdatedWeek;
+    public WebElement lastUpdatedWeek;
 
     @FindBy(xpath = ".//*[@class='input-wrapper'][contains(.,'Last Month')]")
-    public WebElement LastUpdatedMonth;
+    public WebElement lastUpdatedMonth;
 
     @FindBy(xpath = ".//*[@class='input-wrapper'][contains(.,'Custom')]")
-    public WebElement LastUpdatedCustom;
+    public WebElement lastUpdatedCustom;
 
     @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'Clear')]")
-    public WebElement ClearBtn;
+    public WebElement clearBtn;
 
     @FindBy(xpath = ".//*[@class='button-inner'][contains(.,'Search')]")
-    public WebElement SearchBtn;
+    public WebElement searchBtn;
 
 
 

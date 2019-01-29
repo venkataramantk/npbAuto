@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
     <Environment>
-        <AppUrl>https://web-qa.agview.com/login</AppUrl>
+        <AppUrl>https://mobile-qa.agview.com/login</AppUrl>
     </Environment>
 </Config>

@@ -18,15 +18,11 @@ public class CreateAccount extends BaseTest {
 
     WebDriver driver;
     ExcelReader excelReaderDT2 = new ExcelReader(Config.getDataFile(Config.DT2_DETAILS));
-    String emailAddressReg;
-    private String rowInExcel = "CreateAccountUS";
-    private String password;
     String env;
 
-    @Parameters({storeXml, usersXml})
     @BeforeClass(alwaysRun = true)
-    public void initDriver(/*@Optional("US") String store, @Optional("guest") String user*/) throws Exception {
-        initializeMobileDriver();
+    public void initDriver() throws Exception {
+        initializeDriver();
         driver = getDriver();
         initializePages(driver);
         env = EnvironmentConfig.getEnvironmentProfile();
@@ -57,12 +53,12 @@ public class CreateAccount extends BaseTest {
 //    }
 
     @Parameters(storeXml)
-    @Test(groups = {GLOBALCOMPONENT, REGRESSION, GUESTONLY, PROD_REGRESSION})
+    @Test
     public void createNewAccount() {
 
         setAuthorInfo("Venkat");
         setRequirementCoverage("Verify that guest user in store, in US Store is able to create an account by clicking on 'Create Account' link from header.");
-        Map<String, String> acct = excelReaderDT2.getExcelData("CreateAccount", rowInExcel);
+//        Map<String, String> acct = excelReaderDT2.getExcelData("CreateAccount", rowInExcel);
 //        createNewAccountFromHeader(acct.get("FirstName"), acct.get("LastName"), acct.get("Password"), acct.get("ZipCode"), acct.get("PhoneNumber"), acct.get("SuccessMessage"));
 //        clickCreateNewAcctAndCreateNewAccountByRow(rowInExcelUS);
     }

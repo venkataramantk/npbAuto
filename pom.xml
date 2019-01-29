@@ -389,7 +389,6 @@
                 <env.profile>qa</env.profile>
                 <driver.browser>android</driver.browser>
                 <env.platform>android</env.platform>
-                <env.browserversion>59.0</env.browserversion>
                 <env.platform.version>7</env.platform.version>
             </properties>
         </profile>
@@ -405,9 +404,8 @@
             <properties>
                 <env.execType>local</env.execType>
                 <env.profile>qa</env.profile>
-                <driver.browser>ios</driver.browser>
-                <env.platform>ios</env.platform>
-                <env.browserversion>59.0</env.browserversion>
+                <driver.browser>IOS</driver.browser>
+                <env.platform>IOS</env.platform>
                 <env.platform.version>7</env.platform.version>
             </properties>
         </profile>

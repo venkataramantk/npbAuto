@@ -8,7 +8,7 @@ import ui.UiBase;
 import javax.naming.Name;
 
 /**
- * Created by Balu on 12/03/2018. ; Edited by Balu on 12/14/2018.
+ * Created by Balu on 12/03/2018.
  */
 
 public class HeaderRepo extends UiBase {
@@ -31,8 +31,7 @@ public class HeaderRepo extends UiBase {
     @FindBy(xpath = ".//*[contains(@class,'button-inner')][contains(.,'Log out')]")
     public WebElement logoutButtonBtn;
 
-    @FindBy(xpath = ".//*[contains(@class,'logout')][contains(.,"+emailID+")]//label")
-    public WebElement loginIDTxtLbl;
-
-
+    public WebElement loginIDTxtLbl(String emailID){
+        return getDriver().findElement(By.xpath(".//*[contains(@class,'logout')][contains(.,"+emailID+")]//label"));
+    }
 }

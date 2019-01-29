@@ -35,7 +35,7 @@ public class ReportReader extends BaseTest{
 
     @BeforeClass
     public void setUp() throws Exception {
-        initializeDriver();
+//        initializeDriver();
         driver = getDriver();
         String int3Regression="http://10.18.3.192:8080/jenkins/view/UATLIVE1/job/Phase2_Regression_UATLIVE1_Firefox/HTML_Report/Results/Run_1/CurrentRun.html";
         driver.get(int3Regression);

@@ -7,8 +7,11 @@ import atu.testng.reports.listeners.MethodListener;
 import atu.testng.reports.logging.LogAs;
 import atu.testng.reports.utils.Utils;
 import atu.testng.selenium.reports.CaptureScreen;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.remote.MobilePlatform;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -47,13 +50,16 @@ import static org.openqa.selenium.chrome.ChromeDriverService.CHROME_DRIVER_EXE_P
 import static org.openqa.selenium.ie.InternetExplorerDriverService.IE_DRIVER_EXE_PROPERTY;
 
 /**
- * Created by skonda on 5/18/2016.
+ * Created by venkat on 12/13/2018.
  */
+
 @Listeners({ATUReportsListener.class, ConfigurationListener.class,
         MethodListener.class, ui.utils.MethodListener.class})
-public class BrowserInitializer {
+public class BrowserInitializer{
     public WebDriver driver;
-    //public WebDriver mobileDriver;
+    public AndroidDriver androidDriver;
+    public IOSDriver iosDriver;
+    public AppiumDriver mobileDriver;
     UiBase base = new UiBase();
     Logger logger = Logger.getLogger(BrowserInitializer.class);
     List<Thread> threadCollection = new ArrayList<Thread>();
@@ -68,7 +74,7 @@ public class BrowserInitializer {
 
     public BrowserInitializer() {
 
-        ATUReports.indexPageDescription = "TCP Automation";
+        ATUReports.indexPageDescription = "NPB Mobile Automation";
 
     }
 
@@ -167,55 +173,50 @@ public class BrowserInitializer {
                     driver.manage().window().maximize();
                     break;
                 case "ANDROID":
-                    ChromeOptions and_Opt = new ChromeOptions();
-                    and_Opt.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
-                    and_Opt.addArguments("--disable-notifications");
-
-                    capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.CHROME);
-                    capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-                    capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
-                    capabilities.setCapability("nativeWebScreenshot", true);
-                    capabilities.setCapability("newCommandTimeout", 60 * 5);
-                    capabilities.setCapability("automationName", "UiAutomator2");
-                    //capabilities.setCapability("automationName", "Appium");
-                    capabilities.setCapability("disable-popup-blocking", true);
-
-                    capabilities.setCapability(ChromeOptions.CAPABILITY, and_Opt);
-                    driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+                    capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+                    capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"GalaxyS");
+                    capabilities.setCapability(MobileCapabilityType.VERSION, "6.0.1");
+                    capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 10000);
+//                    capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Android");
+                    capabilities.setCapability(MobileCapabilityType.APP,"/Users/venkataramant/frameWork/npbAuto/bin/binaries/agconnect.apk");
+                    capabilities.setCapability("appPackage","com.Ag.FieldDataEnt");
+                    capabilities.setCapability(MobileCapabilityType.UDID,"22e0f8d510047ece"); //22e0f8d510047ece;ce07160724e0a30c03
+                    capabilities.setCapability("automationName", "uiautomator2");
+                    androidDriver = new AndroidDriver(new URL("http://127.0.0.1:42021/wd/hub"), capabilities);
+                    androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
+
                 case "IOS":
-                   /* String url = "https://jagadeeshkotha1:QfpvJ5armd29tmBpYRsr@hub-cloud.browserstack.com/wd/hub";
-                    capabilities.setCapability("browserName", "iPhone");
-                    capabilities.setCapability("device", "iPhone X");
-                    capabilities.setCapability("realMobile", "true");
-                    capabilities.setCapability("os_version", "11.0");
-                    capabilities.setCapability("browserstack.local", "true");
-                    capabilities.setCapability("browserstack.debug", true);
-                    driver = new RemoteWebDriver(new URL(url), capabilities);*/
-                    capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-                    capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.3");
-                    capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
-                    capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X");
-                    capabilities.setCapability("newCommandTimeout", 60 * 5);
-                    capabilities.setCapability("safariInitialUrl", EnvironmentConfig.getApplicationUrl());
-                    driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+                    capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.IOS);
+                    capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"iPad");
+                    capabilities.setCapability(MobileCapabilityType.PLATFORM,"MAC");
+                    capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.2.6");
+                    capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 10000);
+                    capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "IOS");
+                    capabilities.setCapability(MobileCapabilityType.APP,"/Users/venkataramant/frameWork/npbAuto/bin/binaries/AgView.ipa");
+                    capabilities.setCapability("appPackage","com.Ag.FieldDataEnt");
+                    capabilities.setCapability(MobileCapabilityType.UDID,"89515bfa238ceb40b45b24fd7839844a615c3678");//f4bf0913fa87fc35703fb8abd4375f5181958292;89515bfa238ceb40b45b24fd7839844a615c3678
+                    capabilities.setCapability("automationName", "XCUITest");
+                    iosDriver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+                    iosDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
+
                 default:
                     break;
             }
 
-        } else if (Config.getExecutionType().equalsIgnoreCase("grid")) {
+        } /*else if (Config.getExecutionType().equalsIgnoreCase("grid")) {
             logger.info("Initializing driver on Grid machine....");
             if (browserType.equalsIgnoreCase("ANDROID")) {
                 String mobHubUrl = Config.getMobHubUrl();
                 ChromeOptions and_Opt = new ChromeOptions();
-               /* and_Opt.addArguments("--disable-save-password-bubble");
-                and_Opt.addArguments("--disable-notifications");*/
+               *//* and_Opt.addArguments("--disable-save-password-bubble");
+                and_Opt.addArguments("--disable-notifications");*//*
 
-              /*  Map<String, Object> prefs = new HashMap<String, Object>();
+              *//*  Map<String, Object> prefs = new HashMap<String, Object>();
                 prefs.put("credentials_enable_service", false);
                 prefs.put("profile.password_manager_enabled", false);
-                and_Opt.setExperimentalOption("prefs", prefs);*/
+                and_Opt.setExperimentalOption("prefs", prefs);*//*
 
                 and_Opt.addArguments("--disable-extensions", "test-type",
                         "no-default-browser-check", "ignore-certificate-errors",
@@ -235,18 +236,26 @@ public class BrowserInitializer {
 
                 driver = new AndroidDriver(new URL("http://" + mobHubUrl + ":4444/wd/hub"), capabilities);
 
-            } else {
+            }
+            else {
                 String hubUrl = Config.getHubUrl();
                 capabilities.setBrowserName(browserType);
                 driver = new RemoteWebDriver(new URL("http://" + hubUrl + ":4444/wd/hub"), capabilities);
                 driver.manage().window().maximize();
             }
+        }*/
+
+        if (browserType.equalsIgnoreCase("android")|| browserType.equalsIgnoreCase("ios")) {
+            base.setDriver(mobileDriver);
+            setDriver(mobileDriver);
         }
-        base.setDriver(driver);
-        setDriver(driver);
-        setUpDriverToEventDriver();
-        setTimeOuts(driver);
-        shutdownHook(driver);
+        else {
+            base.setDriver(driver);
+            setDriver(driver);
+            setUpDriverToEventDriver();
+            setTimeOuts(driver);
+            shutdownHook(driver);
+        }
     }
 
     public void setUpDriverToEventDriver() {

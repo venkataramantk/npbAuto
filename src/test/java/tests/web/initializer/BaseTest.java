@@ -162,32 +162,32 @@ public class BaseTest extends PageInitializer {
         return cellValue;
     }
 
-    public void navigateToChromeBrowserAndInitializePages() {
-        if (!Config.getBrowserType().equalsIgnoreCase("chrome")) {
-            navigateToChromeDriver();
-            driver = getDriver();
-            initializePages(driver);
-        }
+//    public void navigateToChromeBrowserAndInitializePages() {
+//        if (!Config.getBrowserType().equalsIgnoreCase("chrome")) {
+//            navigateToChromeDriver();
+//            driver = getDriver();
+//            initializePages(driver);
+//        }
 
-    }
+//    }
+//
+//    public void navigateToChromeBrowserWithEventDriEnabledAndInitializePages() {
+//        if (!Config.getBrowserType().equalsIgnoreCase("chrome")) {
+//            navigateToChromeDriverWithEventDriverEnabled();
+//            driver = getDriver();
+//            initializePages(driver);
+//        }
+//
+//    }
 
-    public void navigateToChromeBrowserWithEventDriEnabledAndInitializePages() {
-        if (!Config.getBrowserType().equalsIgnoreCase("chrome")) {
-            navigateToChromeDriverWithEventDriverEnabled();
-            driver = getDriver();
-            initializePages(driver);
-        }
-
-    }
-
-    public void navigateToFFBrowserWithEventDriEnabledAndInitializePages() {
-        if (!Config.getBrowserType().equalsIgnoreCase("firefox")) {
-            navigateToFFDriverWithEventDriverEnabled();
-            driver = getDriver();
-            initializePages(driver);
-        }
-
-    }
+//    public void navigateToFFBrowserWithEventDriEnabledAndInitializePages() {
+//        if (!Config.getBrowserType().equalsIgnoreCase("firefox")) {
+//            navigateToFFDriverWithEventDriverEnabled();
+//            driver = getDriver();
+//            initializePages(driver);
+//        }
+//
+//    }
 
 
     public Map<String, String> getMapOfItemNamesAndQuantityWithCommaDelimited(String itemNames, String quantity) {
@@ -222,7 +222,7 @@ public class BaseTest extends PageInitializer {
     public WebDriver closeAndReOpenBrowserAndNavigateToURL() throws Exception {
 
         driver.close();
-        initializeDriver();
+//        initializeDriver();
         driver = getDriver();
         initializePages(driver);
 
